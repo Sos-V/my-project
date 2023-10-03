@@ -8,11 +8,13 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-class VisitedInGivendayTest {
-    VisitedInGivenday countVisited = new VisitedInGivenday();
+import static org.junit.jupiter.api.Assertions.*;
 
+class FamousPlaygroundTest {
+FamousPlayground mostVisited = new FamousPlayground();
     @Test
-    void countVisitedInGivenday() {
+    void findFamousPlayground() {
+
         Dog dog1 = new Dog("d1", "Luna", Breed.BULLDOG);
         Dog dog2 = new Dog("d2", "Gango", Breed.RETRIEVER);
         Dog dog3 = new Dog("d3", "Rex", Breed.BIEGEL);
@@ -32,8 +34,8 @@ class VisitedInGivendayTest {
         visits.add(visit3);
         visits.add(visit4);
 
-        int output = countVisited.countVisitedInGivenday(visits, LocalDateTime.now());
-
-        Assertions.assertEquals(3, output);
+        PlaygroundNames output = mostVisited.findFamousPlayground(visits);
+        System.out.println(output.getValue());
+        Assertions.assertEquals(p2.getName(),output);
     }
 }
