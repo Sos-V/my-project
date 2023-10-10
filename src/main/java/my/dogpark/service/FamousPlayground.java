@@ -9,15 +9,16 @@ public class FamousPlayground {
     public PlaygroundNames findFamousPlayground(Set<Visit> visits) {
         for (Visit visit : visits) {
             PlaygroundNames playgroundName = visit.getPlayground().getName();
-            playgroundName.incrementValue();
+
         }
-        PlaygroundNames maxPlayground=null;
+        PlaygroundNames maxPlayground = null;
         int maxValue = 0;
         for (PlaygroundNames playgroundName : PlaygroundNames.values()) {
             if (playgroundName.getValue() > maxValue) {
                 maxValue = playgroundName.getValue();
                 maxPlayground = playgroundName;
             }
+
         }
         return maxPlayground;
 

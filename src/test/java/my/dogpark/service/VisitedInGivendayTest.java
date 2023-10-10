@@ -4,6 +4,7 @@ import my.dogpark.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -32,7 +33,8 @@ class VisitedInGivendayTest {
         visits.add(visit3);
         visits.add(visit4);
 
-        int output = countVisited.countVisitedInGivenday(visits, LocalDateTime.now());
+        int output = countVisited.countVisitedInGivenday(visits, LocalDate.now());
+
 
         Assertions.assertEquals(3, output);
     }
