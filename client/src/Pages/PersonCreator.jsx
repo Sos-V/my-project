@@ -44,7 +44,7 @@ export default function PersonCreator() {
 
   return (
     <>
-      <button onClick={() => clicked ? setClicked(false) : setClicked(true)}>GetAllPersons</button>
+     
       <form className="Form" onSubmit={onSubmit}>
 
         <div className="control">

@@ -30,7 +30,7 @@ export default function PersonUpdater() {
                 },
                 body: JSON.stringify(obj)
 
-            }).then(() => navigate("/persons"));
+            }).then(() => navigate("/"));
         } else
             alert("please fill all fields");
     };

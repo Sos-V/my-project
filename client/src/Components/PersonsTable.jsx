@@ -25,9 +25,12 @@ export default function PersonsTable({ persons, onDelete }) {
                                         <Link to={`/update/${person.id}`}>__
                                             <button>Update</button>_
                                         </Link>
+
+                                        <Link to = {`/persons`}>
                                         <button onClick={() => onDelete(person.id)}>
                                             Delete
                                         </button>
+                                        </Link>
                                     </td>
                                 </tr>
                                
