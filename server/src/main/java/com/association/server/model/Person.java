@@ -14,6 +14,7 @@ public class Person {
     private Long id;
     private String name;
     private int age;
+    private SportArt sport;
 
     public Long getId() {
         return id;
@@ -37,5 +38,13 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public SportArt getSport() {
+        return sport;
+    }
+
+    public void setSport(SportArt sport) {
+        this.sport = sport;
     }
 }

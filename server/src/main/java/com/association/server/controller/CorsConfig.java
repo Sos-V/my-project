@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @CrossOrigin(
         origins = {
                 "http://localhost:3000",
-                "https://staging.example.com",
-                "https://app.example.com"
+                "https://localhost:3000/{id}",
+                "https://localhost:3000/update/{id}",
+                "https://localhost:3000/createPerson/{id}"
         },
         methods = {
                 RequestMethod.OPTIONS,
                 RequestMethod.GET,
-                RequestMethod.PUT,
+                RequestMethod.PATCH,
                 RequestMethod.DELETE,
                 RequestMethod.POST
         })

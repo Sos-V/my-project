@@ -2,8 +2,11 @@ package com.association.server.controller;
 
 import com.association.server.model.Person;
 import com.association.server.model.PersonRepository;
-import com.association.server.service.PersonService;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -19,24 +22,39 @@ public class Controller extends CorsConfig {
     }
 
     @GetMapping
-     List<Person> getPersons() {
-
+    List<Person> getPersons() {
         return personRepository.findAll();
-       // return ps.getAllPersons();
     }
+
     @GetMapping("/{id}")
-     Person getPerson(@PathVariable Long id){
+    Person getPerson(@PathVariable Long id) {
         return personRepository.findById(id).orElse(null);
     }
 
     @PostMapping
-     Person savePerson(@RequestBody Person person) {
+    Person savePerson(@RequestBody Person person) {
         return personRepository.save(person);
-       // return ps.savePerson(person);
+
     }
+
     @DeleteMapping("/{id}")
-     void deletePerson(@PathVariable Long id){
+    void deletePerson(@PathVariable Long id) {
         personRepository.deleteById(id);
-       // ps.deletePerson(id);
+
     }
+
+
+
+    @Transactional
+    @PatchMapping("/{id}")
+    public void updatePerson(@PathVariable Long id, @RequestBody Person person) {
+        Person personForUpdate = personRepository.findById(id).orElse(null);
+
+        assert personForUpdate != null;
+        personForUpdate.setName(person.getName());
+        personForUpdate.setAge(person.getAge());
+        personForUpdate.setSport(person.getSport());
+
+    }
+
 }
