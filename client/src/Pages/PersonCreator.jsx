@@ -1,53 +1,43 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 export default function PersonCreator() {
 
-  const [persons, setPersons] = useState();
   const [name, setName] = useState(null);
-  const [clicked, setClicked] = useState(false);
   const [age, setAge] = useState(null);
-
-  
-
-
-
-    useEffect(() => {
-      fetch("http://localhost:9090/persons")
-        .then(res => res.json())
-        .then(data => setPersons(data), console.log(persons))
-  
-    }, [clicked])
+  const [sport, setSport] = useState(null);
+  const navigator = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (name && age && sport) {
+      try {
+        await fetch('http://localhost:9090/persons', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ "name": name, "age": age, "sport": sport }),
+        });
 
-    try {
-      const response = await fetch('http://localhost:9090/persons', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ "name": name, "age": age }),
-      });
 
-      if (response.ok) {
-        console.log('Data submitted successfully');
-      } else {
-        console.error('Failed to submit data');
+        navigator('/persons');
+
+      } catch (error) {
+        console.error('Error:', error);
       }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    } else alert("please fill all fields")
+
   };
 
 
   return (
     <>
-     
-      <form className="Form" onSubmit={onSubmit}>
 
-        <div className="control">
+      <form className="form" onSubmit={onSubmit}>
+
+        <div >
           <label htmlFor="name">Name:</label>
           <input
             value={name}
@@ -56,17 +46,32 @@ export default function PersonCreator() {
             id="name"
           />
         </div>
-        <div color="red">
+        <div >
           <label htmlFor="age">Age:</label>
           <input
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            age="name"
-            id="age"
+
           />
         </div>
-        <button >save</button>
+        <div >
+          <label htmlFor="sport">kind of sport:</label>
+          <select
+            
+            onChange={(e) => setSport(e.target.value)}>
+            <option></option>
+            <option value="Basketball">Basketball</option>
+            <option value="Volleyball">Volleybal</option>
+            <option value="Tischtennis">Tischtennis</option>
+            <option value="Badminton">Badminton</option>
+            <option value="Fussball">Fußball</option>
+
+          </select>
+        </div>
+        <button className="save">save</button>
+
       </form >
+
     </>
   );
 };

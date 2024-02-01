@@ -5,29 +5,32 @@ import PersonsTable from "../Components/PersonsTable";
 
 
 export default function Persons() {
+
   const [persons, setPersons] = useState();
 
-  const deletePerson = async (id) => {
-    console.log(id);
-    const res = await fetch(`http://localhost:9090/persons/${id}`,
-      { method: "DELETE" });
-    return await res.json();
-  };
+
   const fetchPersons = async () => {
     const res = await fetch("http://localhost:9090/persons");
-    return await res.json();
+    const data = await res.json();
+    return setPersons(data)
   };
 
 
   useEffect(() => {
     fetchPersons()
-      .then(data => setPersons(data), console.log(persons))
 
   }, [])
-  const handleDelete = (id) => {
-    deletePerson(id);
-  }
-  return persons && (<div>
+
+  const handleDelete = async (id) => {
+    const res = await fetch(`http://localhost:9090/persons/${id}`, { method: "DELETE" });
+    await res.json();
+
+    //setPersons((persons) => { return persons.filter(person => person.id != id) })
+   // fetchPersons();
+  };
+
+
+  return persons && (<div >
     <PersonsTable
       persons={persons}
       onDelete={handleDelete} />

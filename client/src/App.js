@@ -1,27 +1,25 @@
 import "./App.css";
 import { Outlet,Link } from "react-router-dom";
+import "./ARARAT-Logo.png";
+import "./image.png";
 
 
 
 const App=()=> {
 
   return (
-    <div>
-      <nav >
-        <ul>
-          <li >
+    <div className="control"> 
+       
+         
+      <nav className="layout">
+       
             <Link to="/persons">
-              <button >Show all Persons Show</button>
+              <button className="left-button">Show all Members</button>
               </Link>
-          </li>
-        </ul>
-        <ul>
-          <li >
             <Link to="/createPerson">
-              <button>create new Person</button>
-            </Link>
-          </li>
-        </ul>
+              <button className="right-button">create new Member</button>
+            </Link>    
+           
       </nav>
       <Outlet />
     </div>

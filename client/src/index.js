@@ -13,6 +13,7 @@ import PersonRemover from './Pages/PersonRemover';
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,8 +34,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/delete/:id",
-        element: <PersonRemover />,
-      },
+        element: <PersonRemover/>
+      }
 
     ],
   },

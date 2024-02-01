@@ -6,42 +6,59 @@ export default function PersonUpdater() {
     const { id } = useParams();
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
-   
+    const [sport, setSport] = useState("");
+
     useEffect(() => {
         fetch(`http://localhost:9090/persons/${id}`)
             .then((res) => res.json())
             .then((person) => {
                 setName(person.name);
                 setAge(person.age);
-               
+                setSport(person.sport);
+
             })
     }, [id])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const obj = {
             name: name,
-            age: age
+            age: age,
+            sport: sport
         }
-        if (name && age ) {
-            fetch(`http://localhost:9090/persons/${id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(obj)
 
-            }).then(() => navigate("/"));
-        } else
-            alert("please fill all fields");
+        fetch(`http://localhost:9090/persons/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+
+        }).then(() => navigate("/"));
+
     };
 
     return (
-        <>
+        <div>
+            <p>.</p>
             <form onSubmit={handleSubmit}>
-                Name: <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
-                Age: <input type="text" value={age} onChange={(e) => { setAge(e.target.value) }} />
-                 <button type="submit"  >Update</button>
+                <label>Name:</label>
+                <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
+                <label>Age:</label>
+                <input type="number" value={age} onChange={(e) => { setAge(e.target.value) }} />
+                <label>Sport:</label>
+                <select value={sport}
+                    onChange={(e) => setSport(e.target.value)}>
+
+                    <option value="Basketball">Basketball</option>
+                    <option value="Volleyball">Volleybal</option>
+                    <option value="Tischtennis">Tischtennis</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Fussball">Fußball</option>
+
+                </select>
+                <button type="submit"  >Update</button>
             </form>
-        </>
+        </div>
     );
 }

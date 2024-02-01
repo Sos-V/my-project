@@ -1,84 +1,64 @@
-.App {
-  text-align: center;
-  background-origin: padding-box;
-}
-
-
-
-.App-header {
-  background-color: #0e45b3;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-body {
-  
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #3498db;
-}
-
-nav {
-  background-color: #ffffff; 
-  
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-ul {
-  
+.layout {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  border: 1px solid #f31010;
-  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px; /* Optional: Add padding for better visual appearance */
+  background-color: #fff; /* Set background color if needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  background-color: rgb(4, 70, 70);
+  
+}
+
+.left-button, .right-button {
+  
+  margin-right: 20px;
+  cursor:pointer;
+}
+
+.right-button {
+  order: 2; /* Adjust the order to move it to the right */
+}
+.table{
+  margin: 20px;
+  margin-top: 50px;
+  display: grid;
+  background-color: rgb(3, 167, 167);
+ 
+}
+td{
+  border-style: solid;
+  border-color:rgb(7, 33, 24);
+  text-align: center;
+
+}
+th{
+  border-style: solid;
+  border-top: 20px,10px,red;
+}
+.form{
+  margin: 20px;
   color: #fff;
-}
-
-li {
-  
-  background-color: #2ea2cc; 
-  color: #f40707;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-}
-
-form {
-  background-color: #ffffff; /* White background for the form */
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  margin-top: 50px;
+  display: flex;
+  background-color: rgb(2, 116, 116);
+  justify-content: space-between;
 }
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.form .save {
+  margin-right: 50px ;
+  
 }
-div{
-  background-color: aquamarine;
+label{
+  padding-left: 20px;
+  padding-right: 20px;
 }
-
+input{
+  background-color: beige;
+}
+select{
+  background-color: beige;
+  width: 150px;
+}
