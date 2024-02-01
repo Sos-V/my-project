@@ -39,9 +39,8 @@ export default function PersonUpdater() {
     };
 
     return (
-        <div>
-            <p>.</p>
-            <form onSubmit={handleSubmit}>
+       
+            <form className="form" onSubmit={handleSubmit}>
                 <label>Name:</label>
                 <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
                 <label>Age:</label>
@@ -59,6 +58,6 @@ export default function PersonUpdater() {
                 </select>
                 <button type="submit"  >Update</button>
             </form>
-        </div>
+     
     );
 }
