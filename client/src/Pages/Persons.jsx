@@ -21,18 +21,11 @@ export default function Persons() {
 
   }, [])
 
-  const handleDelete = async (id) => {
-    const res = await fetch(`http://localhost:9090/persons/${id}`, { method: "DELETE" });
-    await res.json();
-
-    //setPersons((persons) => { return persons.filter(person => person.id != id) })
-   // fetchPersons();
-  };
-
+  
 
   return persons && (<div >
     <PersonsTable
       persons={persons}
-      onDelete={handleDelete} />
+       />
   </div>)
 }

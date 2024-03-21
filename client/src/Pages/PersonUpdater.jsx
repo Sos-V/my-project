@@ -39,12 +39,17 @@ export default function PersonUpdater() {
     };
 
     return (
-       
-            <form className="form" onSubmit={handleSubmit}>
+
+        <form className="form" onSubmit={handleSubmit}>
+            <div>
                 <label>Name:</label>
                 <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
+            </div>
+            <div>
                 <label>Age:</label>
                 <input type="number" value={age} onChange={(e) => { setAge(e.target.value) }} />
+            </div>
+            <div>
                 <label>Sport:</label>
                 <select value={sport}
                     onChange={(e) => setSport(e.target.value)}>
@@ -56,8 +61,9 @@ export default function PersonUpdater() {
                     <option value="Fussball">Fußball</option>
 
                 </select>
-                <button type="submit"  >Update</button>
-            </form>
-     
+            </div>
+            <button type="submit"  >Update</button>
+        </form>
+
     );
 }

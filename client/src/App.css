@@ -1,3 +1,6 @@
+body{
+  background-image:url( "bild.JPEG")  ;
+}
 .layout {
   position: fixed;
   top: 0;
@@ -23,9 +26,9 @@
 }
 .table{
   margin: 20px;
-  margin-top: 50px;
+  margin-top: 60px;
   display: grid;
-  background-color: rgb(3, 167, 167);
+  background-color: rgb(4, 186, 186,0.6);
  
 }
 td{
@@ -40,11 +43,11 @@ th{
 }
 .form{
   margin: 20px;
-  color: #fff;
+  color: #171616;
   padding: 20px;
   margin-top: 70px;
   display: flex;
-  background-color: rgb(2, 116, 116);
+  background-color:rgb(4, 186, 186,0.5);
   justify-content: space-between;
 }
 .form .save {
@@ -56,9 +59,23 @@ label{
   padding-right: 20px;
 }
 input{
-  background-color: beige;
+  background-color: rgb(247, 247, 243);
 }
 select{
-  background-color: beige;
+  background-color: rgb(248, 248, 246);
   width: 150px;
+}
+.Attention{
+  color:white;
+  background-color: rgb(4, 186, 186);
+  display: inline-grid;
+  padding: 2%;
+  margin-left: 40%;
+  margin-top: 10%;
+}
+.redButton{
+  background-color: red;
+}
+.greenButton{
+  background-color: rgb(3, 182, 68);
 }

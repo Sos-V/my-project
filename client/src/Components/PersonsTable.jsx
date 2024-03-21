@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../App.css";
-export default function PersonsTable({ persons, onDelete }) {
+export default function PersonsTable({ persons}) {
     return (
         <div className="table">
             <table>
@@ -32,9 +32,7 @@ export default function PersonsTable({ persons, onDelete }) {
                                     </Link>
 
                                     <Link to={`/delete/${person.id}`}>
-                                        <button type="button" onClick={() => onDelete(person.id)}>
-                                            Delete
-                                        </button>
+                                        <button >Delete</button>
                                     </Link>
                                 </td>
                             </tr>

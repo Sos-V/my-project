@@ -22,7 +22,7 @@ export default function PersonCreator() {
         });
 
 
-        navigator('/persons');
+        navigator('/');
 
       } catch (error) {
         console.error('Error:', error);
