@@ -22,7 +22,7 @@ export default function PersonCreator() {
         });
 
 
-        navigator('/');
+        navigator('/persons');
 
       } catch (error) {
         console.error('Error:', error);
@@ -30,6 +30,12 @@ export default function PersonCreator() {
     } else alert("please fill all fields")
 
   };
+  const proveAgeField = (personAge) => {
+    
+    if (personAge > 0 && personAge < 120) { setAge(personAge) }
+    else alert("please enter a number")
+  };
+
 
 
   return (
@@ -50,14 +56,14 @@ export default function PersonCreator() {
           <label htmlFor="age">Age:</label>
           <input
             value={age}
-            onChange={(e) => setAge(e.target.value)}
+            onChange={(e) => proveAgeField(e.target.value)}
 
           />
         </div>
         <div >
           <label htmlFor="sport">kind of sport:</label>
           <select
-            
+
             onChange={(e) => setSport(e.target.value)}>
             <option></option>
             <option value="Basketball">Basketball</option>

@@ -16,6 +16,7 @@ const App=()=> {
             <Link to="/persons">
               <button className="left-button">Show all Members</button>
               </Link>
+              <input></input>
             <Link to="/createPerson">
               <button className="right-button">create new Member</button>
             </Link>    
